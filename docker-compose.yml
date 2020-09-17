@@ -1,0 +1,22 @@
+version: '2.4'
+
+services:
+  s3-dir-monitor:
+    container_name: s3-dir-monitor
+    build: 
+      context: ./
+    networks:
+      network:
+    image: s3-dir-monitor
+    env_file:
+      - .env
+    volumes:
+      - "/tmp/:/tmp/"
+
+networks:
+  network:
+    name: "dir-monitor-network"
+
+volumes:
+  shared-folder:
+    name: shared-folder
